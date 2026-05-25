@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prathmesh Kokare | Mechanical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+:root{
+  --blue:#00abf0;
+  --dark:#081b29;
+  --darker:#041018;
+  --card:#0d2437;
+  --card2:#112b40;
+  --text:#ededed;
+  --muted:#8ab4cc;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);overflow-x:hidden;}
+
+/* ── HEADER ── */
+.header{position:fixed;top:0;left:0;width:100%;padding:18px 8%;background:rgba(8,27,41,.92);backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;z-index:100;border-bottom:1px solid rgba(0,171,240,.12);}
+.logo{font-size:22px;color:#fff;text-decoration:none;font-weight:700;letter-spacing:1px;}
+.logo span{color:var(--blue);}
+.navbar a{font-size:15px;color:#ccc;text-decoration:none;font-weight:500;margin-left:28px;transition:.2s;}
+.navbar a:hover,.navbar a.active{color:var(--blue);}
+
+/* ── HERO ── */
+.home{width:100%;min-height:100vh;display:flex;align-items:center;padding:120px 8% 60px;position:relative;overflow:hidden;}
+.home::before{content:"";position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,171,240,.08) 0%,transparent 70%);pointer-events:none;}
+.home-content{max-width:620px;z-index:1;}
+.home-content .greeting{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;font-family:"Space Mono",monospace;}
+.home-content h1{font-size:52px;font-weight:800;line-height:1.1;margin-bottom:10px;}
+.home-content h3{font-size:26px;font-weight:500;color:var(--muted);margin-bottom:20px;}
+.home-content p{font-size:16px;color:#aac4d5;line-height:1.8;margin-bottom:36px;}
+.btn-box{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-box a{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;transition:.25s;letter-spacing:.5px;}
+.btn-box .btn-primary{background:var(--blue);color:var(--dark);border:2px solid var(--blue);}
+.btn-box .btn-primary:hover{background:transparent;color:var(--blue);}
+.btn-box .btn-secondary{background:transparent;color:var(--blue);border:2px solid var(--blue);}
+.btn-box .btn-secondary:hover{background:var(--blue);color:var(--dark);}
+.home-sci{display:flex;gap:14px;margin-top:40px;}
+.home-sci a{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:2px solid var(--blue);border-radius:8px;color:var(--blue);font-size:18px;text-decoration:none;transition:.25s;}
+.home-sci a:hover{background:var(--blue);color:var(--dark);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,171,240,.08);border:1px solid rgba(0,171,240,.3);padding:6px 16px;border-radius:20px;font-size:13px;color:var(--blue);margin-bottom:18px;font-family:"Space Mono",monospace;}
+.hero-badge i{font-size:12px;}
+
+/* ── SECTION COMMONS ── */
+section{padding:90px 8%;}
+.section-title{font-size:36px;font-weight:800;text-align:center;margin-bottom:12px;}
+.section-title span{color:var(--blue);}
+.section-sub{text-align:center;color:var(--muted);font-size:16px;margin-bottom:60px;}
+.divider{width:60px;height:3px;background:var(--blue);margin:14px auto 0;}
+
+/* ── ABOUT ── */
+#about{background:var(--darker);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:960px;margin:0 auto;}
+.about-text h2{font-size:28px;font-weight:700;margin-bottom:16px;}
+.about-text p{color:#aac4d5;line-height:1.9;margin-bottom:14px;font-size:15px;}
+.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.tag{background:rgba(0,171,240,.1);border:1px solid rgba(0,171,240,.25);color:var(--blue);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;}
+.about-info{background:var(--card);border-radius:16px;padding:32px;border:1px solid rgba(0,171,240,.1);}
+.info-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.info-item:last-child{border-bottom:none;}
+.info-label{color:var(--muted);font-size:14px;}
+.info-val{font-size:14px;font-weight:600;color:#fff;}
+
+/* ── JOURNEY ── */
+#journey{background:var(--dark);}
+.timeline{max-width:800px;margin:0 auto;position:relative;}
+.timeline::before{content:"";position:absolute;left:30px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),rgba(0,171,240,.1));}
+.tl-item{display:flex;gap:28px;margin-bottom:44px;position:relative;}
+.tl-dot{width:60px;height:60px;min-width:60px;border-radius:50%;background:var(--card);border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:10px;font-weight:700;color:var(--blue);font-family:"Space Mono",monospace;text-align:center;line-height:1.3;z-index:1;}
+.tl-content{background:var(--card);border-radius:14px;padding:24px;flex:1;border:1px solid rgba(0,171,240,.1);}
+.tl-content h3{font-size:18px;font-weight:700;margin-bottom:6px;}
+.tl-content .tl-sub{color:var(--blue);font-size:13px;font-weight:600;margin-bottom:10px;font-family:"Space Mono",monospace;}
+.tl-content p{color:#aac4d5;font-size:14px;line-height:1.8;}
+
+/* ── SKILLS ── */
+#skills{background:var(--darker);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:960px;margin:0 auto;}
+.skill-card{background:var(--card);border-radius:14px;padding:28px;border:1px solid rgba(0,171,240,.1);transition:.25s;}
+.skill-card:hover{border-color:var(--blue);transform:translateY(-4px);}
+.skill-card i{font-size:28px;color:var(--blue);margin-bottom:14px;}
+.skill-card h3{font-size:17px;font-weight:700;margin-bottom:10px;}
+.skill-card p{color:var(--muted);font-size:14px;line-height:1.7;}
+
+/* ── RESUME ── */
+#resume{background:var(--dark);}
+.resume-wrapper{display:flex;justify-content:center;align-items:center;}
+.resume-card{background:var(--card);border-radius:20px;padding:52px 48px;border:1px solid rgba(0,171,240,.18);max-width:560px;width:100%;text-align:center;position:relative;overflow:hidden;transition:.25s;}
+.resume-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),#0056a0);}
+.resume-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,171,240,.1);}
+.resume-icon-wrap{width:80px;height:80px;background:rgba(0,171,240,.1);border:2px solid rgba(0,171,240,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.resume-icon-wrap i{font-size:36px;color:var(--blue);}
+.resume-card h3{font-size:22px;font-weight:800;margin-bottom:6px;}
+.resume-role{font-size:14px;color:var(--blue);font-family:"Space Mono",monospace;margin-bottom:18px;font-weight:600;}
+.resume-desc{color:#aac4d5;font-size:15px;line-height:1.8;margin-bottom:24px;}
+.resume-highlights{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:32px;}
+.r-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,171,240,.08);border:1px solid rgba(0,171,240,.2);color:var(--blue);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;}
+.resume-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 38px;background:var(--blue);color:var(--dark);border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;transition:.25s;letter-spacing:.5px;margin-bottom:20px;}
+.resume-btn:hover{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:12px 36px;}
+.resume-note{font-size:12px;color:var(--muted);margin-top:4px;}
+.resume-note code{background:rgba(0,171,240,.1);padding:1px 6px;border-radius:4px;font-family:"Space Mono",monospace;color:var(--blue);font-size:11px;}
+
+/* ── CAPSTONE (FEATURED) ── */
+#capstone{background:var(--darker);}
+.capstone-hero{max-width:1100px;margin:0 auto;}
+.capstone-banner{background:linear-gradient(135deg,var(--card) 0%,var(--card2) 100%);border:1px solid rgba(0,171,240,.25);border-radius:20px;padding:48px;margin-bottom:36px;position:relative;overflow:hidden;}
+.capstone-banner::before{content:"";position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,171,240,.07) 0%,transparent 70%);pointer-events:none;}
+.cap-label{display:inline-flex;align-items:center;gap:8px;background:rgba(0,171,240,.12);border:1px solid rgba(0,171,240,.4);padding:6px 18px;border-radius:20px;font-size:12px;color:var(--blue);font-family:"Space Mono",monospace;font-weight:700;letter-spacing:1px;margin-bottom:22px;}
+.capstone-banner h2{font-size:26px;font-weight:800;line-height:1.4;margin-bottom:18px;max-width:700px;}
+.capstone-banner .guide{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.capstone-banner .guide span{color:#fff;font-weight:600;}
+.cap-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.cap-stat{background:rgba(0,171,240,.07);border:1px solid rgba(0,171,240,.15);border-radius:12px;padding:16px 24px;text-align:center;}
+.cap-stat .val{font-size:26px;font-weight:800;color:var(--blue);font-family:"Space Mono",monospace;}
+.cap-stat .lbl{font-size:12px;color:var(--muted);margin-top:4px;}
+.capstone-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.cap-card{background:var(--card);border-radius:16px;padding:28px;border:1px solid rgba(0,171,240,.1);}
+.cap-card h4{font-size:16px;font-weight:700;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.cap-card ul{list-style:none;padding:0;}
+.cap-card ul li{color:#aac4d5;font-size:14px;padding:6px 0 6px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.04);}
+.cap-card ul li:last-child{border-bottom:none;}
+.cap-card ul li::before{content:"›";position:absolute;left:0;color:var(--blue);font-size:18px;line-height:1.2;}
+.cap-card p{color:#aac4d5;font-size:14px;line-height:1.8;}
+.param-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.param{background:rgba(0,171,240,.05);border-radius:8px;padding:10px 14px;}
+.param .pk{font-size:11px;color:var(--muted);margin-bottom:3px;}
+.param .pv{font-size:14px;font-weight:600;color:#fff;}
+.pub-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,100,.08);border:1px solid rgba(0,200,100,.25);color:#00c864;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;margin-top:12px;}
+
+/* ── TOOLS ── */
+#tools{background:var(--dark);}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;max-width:1000px;margin:0 auto;}
+.tool-cat{background:var(--card);border-radius:14px;padding:24px;border:1px solid rgba(0,171,240,.1);}
+.tool-cat h4{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(0,171,240,.15);}
+.tool-cat .tools{display:flex;flex-wrap:wrap;gap:8px;}
+.tool-tag{background:rgba(255,255,255,.05);color:#cde;padding:4px 12px;border-radius:6px;font-size:13px;}
+
+/* ── INTERNSHIPS ── */
+#internships{background:var(--darker);}
+.intern-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:960px;margin:0 auto;}
+.intern-card{background:var(--card);border-radius:16px;padding:32px;border:1px solid rgba(0,171,240,.1);transition:.25s;}
+.intern-card:hover{border-color:var(--blue);}
+.intern-card .company{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--blue);font-family:"Space Mono",monospace;margin-bottom:10px;}
+.intern-card h3{font-size:19px;font-weight:700;margin-bottom:16px;}
+.intern-card ul{list-style:none;padding:0;}
+.intern-card ul li{color:#aac4d5;font-size:14px;padding:6px 0 6px 18px;position:relative;}
+.intern-card ul li::before{content:"•";position:absolute;left:0;color:var(--blue);}
+
+/* ── ACHIEVEMENTS ── */
+#achievements{background:var(--dark);}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1000px;margin:0 auto;}
+.ach-card{background:var(--card);border-radius:14px;padding:28px;border:1px solid rgba(0,171,240,.1);text-align:center;transition:.25s;}
+.ach-card:hover{border-color:var(--blue);transform:translateY(-4px);}
+.ach-card i{font-size:32px;color:var(--blue);margin-bottom:16px;}
+.ach-card h3{font-size:17px;font-weight:700;margin-bottom:10px;}
+.ach-card p{color:var(--muted);font-size:14px;line-height:1.7;}
+
+/* ── GRATITUDE ── */
+#gratitude{background:var(--darker);}
+.grat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:960px;margin:0 auto;}
+.grat-card{background:var(--card);border-radius:14px;padding:26px;border:1px solid rgba(0,171,240,.1);text-align:center;}
+.grat-card i{font-size:28px;color:var(--blue);margin-bottom:12px;}
+.grat-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+.grat-card p{color:var(--muted);font-size:13px;line-height:1.7;}
+
+/* ── FOOTER ── */
+footer{background:var(--darker);text-align:center;padding:48px 8%;border-top:1px solid rgba(0,171,240,.1);}
+footer h2{font-size:32px;font-weight:800;margin-bottom:8px;}
+footer p{color:var(--muted);margin-bottom:28px;font-size:15px;}
+.foot-sci{display:flex;justify-content:center;gap:14px;margin-bottom:28px;}
+.foot-sci a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:2px solid var(--blue);border-radius:10px;color:var(--blue);font-size:18px;text-decoration:none;transition:.25s;}
+.foot-sci a:hover{background:var(--blue);color:var(--dark);}
+.copy{color:#556;font-size:13px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .about-grid,.intern-grid,.capstone-body{grid-template-columns:1fr;}
+  .home-content h1{font-size:38px;}
+  .capstone-banner h2{font-size:20px;}
+}
+@media(max-width:600px){
+  .header{padding:16px 5%;}
+  .navbar{display:none;}
+  section{padding:70px 5%;}
+  .home{padding:100px 5% 60px;}
+  .cap-stats{flex-direction:column;gap:14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="#home" class="logo">PBK<span>.</span></a>
+  <nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="https://drive.google.com/file/d/1_TpBjrS8TEknWHeoEnIFZBJGtXrGG_WM/view?usp=sharing" target="_blank">Resume</a>
+    <a href="#capstone" class="active">Capstone</a>
+    <a href="#internships">Internships</a>
+    <a href="#achievements">Achievements</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="home" id="home">
+  <div class="home-content">
+    <div class="hero-badge"><i class="fa-solid fa-location-dot"></i> MIT Academy of Engineering, Pune</div>
+    <div class="greeting">Hello, I am</div>
+    <h1>Prathmesh<br/>Baban Kokare</h1>
+    <h3>Mechanical Engineer</h3>
+    <p>B.Tech graduate specialising in design automation, thermal simulation, and sustainable product development. Combining mechanical expertise with programming to build innovative engineering solutions.</p>
+    <div class="btn-box">
+      <a href="#capstone" class="btn-primary"><i class="fa-solid fa-flask"></i> View Capstone</a>
+      <a href="resume.pdf" download="Prathmesh_Kokare_Resume.pdf" class="btn-secondary"><i class="fa-solid fa-download"></i> Download Resume</a>
+    </div>
+    <div class="home-sci">
+      <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="mailto:prathmesh@example.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About <span>Me</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Mechanical engineer with a passion for simulation, design, and innovation</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>Who I Am</h2>
+      <p>I am a Mechanical Engineering graduate from MIT Academy of Engineering, Pune (2022–2026), with a strong passion for design automation, simulation, and sustainable product development.</p>
+      <p>I combine mechanical expertise with programming to build innovative engineering solutions — from IoT-based agricultural systems to advanced CFD heat exchanger analysis published at IIT Bhubaneswar.</p>
+      <div class="about-tags">
+        <span class="tag">Thermal Systems</span>
+        <span class="tag">CFD Simulation</span>
+        <span class="tag">BIM Automation</span>
+        <span class="tag">Python</span>
+        <span class="tag">ANSYS Fluent</span>
+      </div>
+    </div>
+    <div class="about-info">
+      <div class="info-item"><span class="info-label">Name</span><span class="info-val">Prathmesh Baban Kokare</span></div>
+      <div class="info-item"><span class="info-label">PRN</span><span class="info-val">202201090008</span></div>
+      <div class="info-item"><span class="info-label">Program</span><span class="info-val">B.Tech Mechanical</span></div>
+      <div class="info-item"><span class="info-label">Institute</span><span class="info-val">MIT-AOE, Pune</span></div>
+      <div class="info-item"><span class="info-label">Batch</span><span class="info-val">2022 – 2026</span></div>
+      <div class="info-item"><span class="info-label">Published At</span><span class="info-val">ICCMS 2025, IIT Bhubaneswar</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <h2 class="section-title">My <span>Journey</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Four years of growth, learning, and achievement</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">FY<br/>22–23</div>
+      <div class="tl-content">
+        <div class="tl-sub">First Year — Foundation</div>
+        <h3>Building the Base</h3>
+        <p>Started engineering life at MIT-AOE. Adapted to college culture, technical thinking, and core subjects. Built a strong foundation in mathematics, physics, and engineering fundamentals.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">SY<br/>23–24</div>
+      <div class="tl-content">
+        <div class="tl-sub">Second Year — Discovery</div>
+        <h3>Hands-on with CAD</h3>
+        <p>Dived into core mechanical subjects. First hands-on exposure to CAD tools — AutoCAD and NX. Began understanding simulation principles and design thinking.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">TY<br/>24–25</div>
+      <div class="tl-content">
+        <div class="tl-sub">Third Year — Projects & Internship</div>
+        <h3>Projects, Simulation & Internship</h3>
+        <p>Worked on thermal systems and simulation projects. Completed internship at PDB Engineers. Earned key certifications in NX and manufacturing. First IoT project delivered.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">B.Tech<br/>25–26</div>
+      <div class="tl-content">
+        <div class="tl-sub">Final Year — Capstone & Career</div>
+        <h3>Research, Publication & Placement</h3>
+        <p>Completed advanced capstone on finned U-tube heat exchanger CFD. Research published at ICCMS 2025, IIT Bhubaneswar. Successfully placed as a mechanical engineer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title">My <span>Skills</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Technical competencies developed across four years</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <i class="fa-solid fa-drafting-compass"></i>
+      <h3>CAD & Design</h3>
+      <p>AutoCAD · CATIA V5 · SolidWorks · Siemens NX · Inventor — proficient in 3D modelling and parametric design.</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-fire-flame-curved"></i>
+      <h3>Simulation & FEA</h3>
+      <p>ANSYS Workbench · ANSYS Fluent · CFD Analysis · FEA Tools · MATLAB — thermal and structural analysis.</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-code"></i>
+      <h3>Programming</h3>
+      <p>Python · C/C++ · HTML · Dynamo · Arduino IDE — scripting for automation, IoT, and design workflows.</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-building"></i>
+      <h3>BIM & Tools</h3>
+      <p>Autodesk Revit · BIM 360 · Dynamo — parametric design automation and multi-discipline coordination.</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-industry"></i>
+      <h3>Manufacturing</h3>
+      <p>Process understanding · Quality Control · BOM — connecting design to production realities.</p>
+    </div>
+    <div class="skill-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>Analysis</h3>
+      <p>Structural FEA · Fluid Dynamics · Heat Transfer calculations · Experimental data validation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <h2 class="section-title">My <span>Resume</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Download my resume to learn more about my experience and skills</p>
+  <div class="resume-wrapper">
+    <div class="resume-card">
+      <div class="resume-icon-wrap">
+        <i class="fa-solid fa-file-pdf"></i>
+      </div>
+      <h3>Prathmesh Baban Kokare</h3>
+      <p class="resume-role">B.Tech Mechanical Engineer · MIT-AOE, Pune</p>
+      <p class="resume-desc">My resume covers my academic background, technical skills, internship experiences, project work, capstone research, and certifications — all in one concise document.</p>
+      <div class="resume-highlights">
+        <span class="r-tag"><i class="fa-solid fa-graduation-cap"></i> B.Tech Mechanical</span>
+        <span class="r-tag"><i class="fa-solid fa-flask"></i> CFD &amp; Simulation</span>
+        <span class="r-tag"><i class="fa-solid fa-code"></i> Python &amp; BIM</span>
+        <span class="r-tag"><i class="fa-solid fa-newspaper"></i> Published Research</span>
+      </div>
+      <a href="https://drive.google.com/uc?export=download&id=1_TpBjrS8TEknWHeoEnIFZBJGtXrGG_WM" target="_blank" class="resume-btn">
+        <i class="fa-solid fa-download"></i> Download Resume
+      </a>
+      <p class="resume-note"><i class="fa-brands fa-google-drive"></i> Hosted on Google Drive · PDF format</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSTONE PROJECT -->
+<section id="capstone">
+  <h2 class="section-title">Capstone <span>Project</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Final year research — published at ICCMS 2025, IIT Bhubaneswar</p>
+  <div class="capstone-hero">
+
+    <div class="capstone-banner">
+      <div class="cap-label"><i class="fa-solid fa-microscope"></i>&nbsp; FINAL YEAR RESEARCH</div>
+      <h2>Investigation to Enhanced Performance of Finned U-tube Shell and Tube Heat Exchanger Using Epoxy Based Polymer Composite Material</h2>
+      <p class="guide">Guided by: <span>Dr. Pramod Kothmire</span> &nbsp;|&nbsp; Solver: <span>ANSYS Fluent</span> &nbsp;|&nbsp; Method: <span>NTU Effectiveness &amp; CFD</span></p>
+      <div class="cap-stats">
+        <div class="cap-stat"><div class="val">22%</div><div class="lbl">Efficiency Gain</div></div>
+        <div class="cap-stat"><div class="val">U-tube</div><div class="lbl">Heat Exchanger Type</div></div>
+        <div class="cap-stat"><div class="val">98 mm</div><div class="lbl">Shell Inner Diameter</div></div>
+        <div class="cap-stat"><div class="val">8</div><div class="lbl">No. of Tubes</div></div>
+      </div>
+    </div>
+
+    <div class="capstone-body">
+
+      <div class="cap-card">
+        <h4><i class="fa-solid fa-bullseye"></i> Objectives</h4>
+        <ul>
+          <li>Enhance heat transfer coefficient using epoxy polymer composite fins</li>
+          <li>Compare Nusselt number and pressure drop with standard metal fins</li>
+          <li>Evaluate thermal efficiency and structural behaviour of composite material</li>
+          <li>Propose composite material as a sustainable alternative for heat exchanger fins</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <h4><i class="fa-solid fa-ruler-combined"></i> Geometric Parameters</h4>
+        <div class="param-grid">
+          <div class="param"><div class="pk">Shell inner dia.</div><div class="pv">98 mm</div></div>
+          <div class="param"><div class="pk">Tube outer dia.</div><div class="pv">8 mm</div></div>
+          <div class="param"><div class="pk">Wall thickness</div><div class="pv">2 mm</div></div>
+          <div class="param"><div class="pk">Number of tubes</div><div class="pv">8</div></div>
+          <div class="param"><div class="pk">Tube length</div><div class="pv">200 mm</div></div>
+          <div class="param"><div class="pk">Tube pitch</div><div class="pv">20 mm</div></div>
+          <div class="param"><div class="pk">Baffles</div><div class="pv">400</div></div>
+          <div class="param"><div class="pk">Element size</div><div class="pv">12.33 mm</div></div>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <h4><i class="fa-solid fa-wind"></i> Meshing Strategy</h4>
+        <ul>
+          <li>Hybrid meshing with tetrahedral elements</li>
+          <li>Inflation layers applied to capture boundary layers</li>
+          <li>Captures U-bend recirculation and fin boundary layers</li>
+          <li>k-ε turbulence model in ANSYS Fluent</li>
+          <li>Bell-Delaware method used for validation baseline</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <h4><i class="fa-solid fa-chart-bar"></i> Key Results</h4>
+        <ul>
+          <li>Finned tubes: 15–25% higher Nusselt number vs plain tubes</li>
+          <li>Thermal efficiency gain: up to 22% with composite fins</li>
+          <li>CFD captures local turbulence effects missed by Bell-Delaware</li>
+          <li>Pressure drop increase within acceptable industrial limits</li>
+        </ul>
+        <div class="pub-badge"><i class="fa-solid fa-book-open"></i> Published — ICCMS 2025, IIT Bhubaneswar</div>
+      </div>
+
+      <div class="cap-card" style="grid-column:1/-1;">
+        <h4><i class="fa-solid fa-lightbulb"></i> Conclusion</h4>
+        <p>Epoxy polymer composite fins enhance heat transfer while significantly reducing thermal resistance. The finned U-tube shell-and-tube heat exchanger design was proven effective for compact industrial and HVAC applications. The research validates composite materials as a sustainable, performance-superior alternative to conventional metal fins, with potential for wide industrial adoption.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <h2 class="section-title">Technical <span>Tools</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Software and tools mastered during the program</p>
+  <div class="tools-grid">
+    <div class="tool-cat">
+      <h4>CAD Tools</h4>
+      <div class="tools">
+        <span class="tool-tag">AutoCAD</span>
+        <span class="tool-tag">SolidWorks</span>
+        <span class="tool-tag">CATIA V5</span>
+        <span class="tool-tag">Siemens NX</span>
+        <span class="tool-tag">Inventor</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <h4>Simulation</h4>
+      <div class="tools">
+        <span class="tool-tag">ANSYS Workbench</span>
+        <span class="tool-tag">ANSYS Fluent</span>
+        <span class="tool-tag">CFD</span>
+        <span class="tool-tag">FEA Tools</span>
+        <span class="tool-tag">MATLAB</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <h4>Programming</h4>
+      <div class="tools">
+        <span class="tool-tag">Python</span>
+        <span class="tool-tag">C/C++</span>
+        <span class="tool-tag">HTML</span>
+        <span class="tool-tag">Dynamo</span>
+        <span class="tool-tag">Arduino IDE</span>
+      </div>
+    </div>
+    <div class="tool-cat">
+      <h4>BIM & Other</h4>
+      <div class="tools">
+        <span class="tool-tag">Autodesk Revit</span>
+        <span class="tool-tag">BIM 360</span>
+        <span class="tool-tag">MS Office</span>
+        <span class="tool-tag">Cloud APIs</span>
+        <span class="tool-tag">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNSHIPS -->
+<section id="internships">
+  <h2 class="section-title">Real-World <span>Internships</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Bridging academia and industry practice</p>
+  <div class="intern-grid">
+    <div class="intern-card">
+      <div class="company">CCTECH</div>
+      <h3>Design Automation &amp; BIM Internship</h3>
+      <ul>
+        <li>Developed design automation workflows using Python scripting</li>
+        <li>Worked on BIM projects using Revit &amp; Inventor</li>
+        <li>Implemented Dynamo scripts for parametric design automation</li>
+        <li>Gained exposure to computational design methodologies</li>
+        <li>Collaborated on multi-discipline engineering coordination</li>
+      </ul>
+    </div>
+    <div class="intern-card">
+      <div class="company">PDB ENGINEERS</div>
+      <h3>Thermal Engineering Internship</h3>
+      <ul>
+        <li>Conducted hands-on experiments with heat exchangers</li>
+        <li>Performed thermal analysis and heat transfer calculations</li>
+        <li>Collected and processed experimental data for validation</li>
+        <li>Assisted in performance testing of thermal systems</li>
+        <li>Prepared technical reports on experimental findings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <h2 class="section-title">Achievements &amp; <span>Activities</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Beyond the curriculum</p>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <i class="fa-solid fa-file-lines"></i>
+      <h3>Research Publication</h3>
+      <p>Authored and presented a research paper at ICCMS 2025, IIT Bhubaneswar — demonstrating advanced technical analysis skills.</p>
+    </div>
+    <div class="ach-card">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Professional Placement</h3>
+      <p>Successfully secured an engineering placement position — the culmination of four years of consistent academic performance.</p>
+    </div>
+    <div class="ach-card">
+      <i class="fa-solid fa-handshake"></i>
+      <h3>Industry Collaboration</h3>
+      <p>Collaborated with professionals at CCTECH and PDB Engineers, gaining practical real-world engineering experience.</p>
+    </div>
+    <div class="ach-card">
+      <i class="fa-solid fa-certificate"></i>
+      <h3>Certifications</h3>
+      <p>Completed industry-recognised certifications from Siemens (NX Intermediate, Part Design) and NPTEL-IIT programmes.</p>
+    </div>
+    <div class="ach-card">
+      <i class="fa-solid fa-water"></i>
+      <h3>Sardar Sarovar Dam Visit</h3>
+      <p>Observed live operation of 200 MW Francis turbines and large-scale hydro power generation systems in Kevadia, Gujarat.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GRATITUDE -->
+<section id="gratitude">
+  <h2 class="section-title">Gratitude &amp; <span>Acknowledgements</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">To those who made this journey possible</p>
+  <div class="grat-grid">
+    <div class="grat-card">
+      <i class="fa-solid fa-chalkboard-teacher"></i>
+      <h3>Faculty &amp; Mentors</h3>
+      <p>Grateful to the dedicated faculty of MIT-AOE for imparting knowledge and nurturing engineering thinking.</p>
+    </div>
+    <div class="grat-card">
+      <i class="fa-solid fa-house-heart"></i>
+      <h3>Family &amp; Parents</h3>
+      <p>Heartfelt thanks for unwavering support and the belief that made this four-year journey possible.</p>
+    </div>
+    <div class="grat-card">
+      <i class="fa-solid fa-building-columns"></i>
+      <h3>Industry Partners</h3>
+      <p>Appreciation to CCTECH and PDB Engineers for bridging academics and industry practice.</p>
+    </div>
+    <div class="grat-card">
+      <i class="fa-solid fa-users"></i>
+      <h3>Peers &amp; Friends</h3>
+      <p>Thankful for collaboration, teamwork, and memories shared during projects, labs, and challenges.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2>Prathmesh Baban Kokare</h2>
+  <p>B.Tech Mechanical Engineering · MIT Academy of Engineering · 2022–2026</p>
+  <div class="foot-sci">
+    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="mailto:prathmesh@example.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+  <p class="copy">© 2026 Prathmesh Kokare · Mechanical Engineer · MIT-AOE, Pune</p>
+</footer>
+
+</body>
+</html>
